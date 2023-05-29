@@ -1,0 +1,9 @@
+@import "cores";
+
+.right {
+  background: $bgGray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

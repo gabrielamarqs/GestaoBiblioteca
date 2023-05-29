@@ -1,0 +1,25 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@import "cores";
+@import "imgLogo";
+@import "container";
+@import "left";
+@import "right";
+@import "btnGreen";
+@import "btnHome";
+
+
+.container {
+  .left {
+    .imgLogo {}
+    .divBtn {
+      padding: 5px 0 5px 0;
+      .btnHome {}
+      .btnGreen {}
+    }
+  }
+  .right {}
+}

@@ -1,0 +1,112 @@
+*{
+  box-sizing: border-box;
+}
+
+@import "cores";
+@import "imgLogo";
+@import "container";
+@import "left";
+@import "right";
+
+
+body {
+  .container {
+
+    .left {
+
+      .imgLogo {
+      }
+
+      .form {
+        padding: 10px;
+        text-align: left;
+
+        .input{
+          margin-top: 10px;
+        }
+        .email {
+          padding-top: 30px;
+          .lEmail {
+            font-size: 16px;
+          }
+          .loginEmail {
+              font-size: 14px;
+              width: 430px;
+              height: 50px;
+              background: $bgGray;
+              color: black;
+              border: 0;
+              padding: 10px;
+              border-radius: 8px;
+            }
+
+        }
+
+        .password {
+          padding-top: 30px;
+          .lPassword {
+            font-size: 16px;
+          }
+
+          .passwordDiv {
+            .loginPassword {
+              text-align: left;
+
+              font-size: 14px;
+              width: 430px;
+              height: 50px;
+              background: $bgGray;
+              color: black;
+              border: 0;
+              border-radius: 8px;
+              padding: 10px;
+
+            }
+            .forgotPassword {
+              font-size: 12px;
+              padding: 0;
+            }
+            margin-bottom: 10px;
+          }
+
+
+        }
+        .btnLoginDiv {
+          padding-top: 20px;
+
+          .btnLogin {
+            width: 430px;
+            height: 50px;
+            background: $green-01;
+            color: white;
+            border-radius: 8px;
+            border: 0;
+            font-weight: bold;
+            text-align: center;
+          }
+
+        }
+        .btnCadastrarDiv {
+          .btnCadastrar {
+            width: 430px;
+            height: 50px;
+            color: $green-01;
+            border: 2px solid $green-01;
+            border-radius: 8px;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            background: white;
+          }
+
+        }
+
+        p{
+          text-align: center;
+        }
+      }
+    }
+
+    .right { }
+  }
+}

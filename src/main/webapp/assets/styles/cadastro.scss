@@ -1,0 +1,99 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@import "btnCadastrar";
+@import "cores";
+
+html{
+  height: 100vh;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: $bgGray;
+}
+.container {
+  width: 950px;
+  height: 720px;
+  border-radius: 30px;
+  background: $green-02;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .form {
+    width: 890px;
+    height: 100%;
+    border-radius: 30px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .titulo {
+      text-transform: uppercase;
+      span{
+        margin-top: 30px;
+        font-size: 30px;
+        display: block;
+      }
+    }
+
+    font-size: 14px;
+
+    .divCadastro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      text-align: left;
+
+      input{
+        align-self: center;
+      }
+
+      .label {
+        padding-bottom: .75rem;
+        padding-left: .425rem;
+
+      }
+
+      .inputCadastro {
+        width: 400px;
+        height: 50px;
+        border-radius: 8px;
+        background: $green-02;
+        border: 1px solid $green-02;
+        padding: 10px;
+      }
+
+
+    }
+    .btnCadastrarDiv {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .btnCadastrar {
+      }
+    }
+    .termos {
+      padding: 10px;
+    }
+    .cadastroOut {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .cadastroOutLogin {
+        color: $btnGreen;
+      }
+    }
+  }
+}
