@@ -18,15 +18,15 @@
             <span>Logue na sua conta</span>
         </div>
         <div class="form">
-        <form action="/login" method="post">
+        <form action="/loginn" method="post">
             <div class="email">
                 <label for="loginEmail" class="lEmail">Email</label>
-                <input type="email" class="input loginEmail" id="loginEmail" placeholder="name@example.com">
+                <input type="email" class="input loginEmail" name="field_email" id="loginEmail" placeholder="name@example.com">
             </div>
             <div class="password">
                 <label for="inputPassword" class="lPassword">Senha</label>
                 <div class="passwordDiv">
-                    <input type="password" class="input loginPassword" id="inputPassword" placeholder="Insira sua senha">
+                    <input type="password" class="input loginPassword" name="field_password" id="inputPassword" placeholder="Insira sua senha">
                     <a href="#" class="forgotPassword"> Esqueceu a senha? </a>
                 </div>
 
@@ -36,7 +36,11 @@
             </div>
             <p>OR</p>
             <div class="btnCadastrarDiv">
-              <button type="submit" class="btnCadastrar">Cadastrar</button>
+              <button type="submit" class="btnCadastrar">
+                  <a href="cadastro.jsp">
+                      Cadastrar
+                  </a>
+              </button>
             </div>
 
         </form>
