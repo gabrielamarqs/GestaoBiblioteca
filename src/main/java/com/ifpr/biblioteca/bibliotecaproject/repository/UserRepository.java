@@ -4,6 +4,7 @@ import com.ifpr.biblioteca.bibliotecaproject.connection.ConnectionFactory;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.transaction.Transaction;
 
 public class UserRepository {

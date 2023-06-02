@@ -7,6 +7,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.transaction.Transaction;
 
+import java.util.List;
+
 public class BookRepository {
 
     private EntityManager entityManager;
@@ -23,5 +25,9 @@ public class BookRepository {
         entityManager.persist(livro);
         transaction.commit();
         return livro;
+    }
+
+    public List<Livro> getAll() {
+        return entityManager.createQuery("SELECT l FROM tb_livro l", Livro.class).getResultList();
     }
 }

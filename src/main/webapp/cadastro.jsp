@@ -51,7 +51,7 @@
                 </div>
                 <div class="divCadastroOut">
                     <p class="cadastroOut">Já possui uma conta?
-                        <a href="/login" class="cadastroOutLogin">Fazer login.</a>
+                        <a href="loginn" class="cadastroOutLogin">Fazer login.</a>
                     </p>
                 </div>
             </form>

@@ -12,6 +12,12 @@ import java.io.IOException;
 @WebServlet("/loginn")
 public class LoginController extends HttpServlet {
 
+    LoginService service;
+
+    public LoginController() {
+        service = new LoginService();
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
 
@@ -19,13 +25,13 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("field_password");
 
         LoginService service = new LoginService();
-
+        System.out.println("dsadsadsads");
 
         try {
             service.validateLogin(email, password, req);
 
             //se está aqui nessa é porque não ocorreu nenhum erro
-            resp.sendRedirect("http://localhost:8080/app/home.jsp");
+            resp.sendRedirect("http://localhost:8080/app/home");
 
         } catch (Exception e) {
             String msg = e.getMessage();
@@ -38,15 +44,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
 
-
-        HttpSession session = req.getSession(false);
-
-        //validar sessao
-        session.setAttribute("is_logged_in", false);
-        session.invalidate();
+        service.logout(req);
 
 
-        resp.sendRedirect("http://localhost:8080/login/index.jsp");
+        resp.sendRedirect("http://localhost:8080/app/index.jsp");
 
     }
 }

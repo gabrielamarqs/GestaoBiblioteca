@@ -1,10 +1,14 @@
-<%--
+<%@ page import="com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: gabrielamarques
   Date: 28/05/2023
   Time: 21:17
   To change this template use File | Settings | File Templates.
 --%>
+<%
+List<Livro> livros =  (List<Livro>) request.getAttribute("attr_livros");
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,35 +21,18 @@
 <body>
 <div class="container">
     <div class="left">
-        <div class="imgLogo">
-            <img src="assets/librakey.svg" alt="libra key">
-            <span>Logue na sua conta</span>
-        </div>
-        <form class="formSearch">
-            <input class="btnHome" type="search" placeholder="Pesquisar" aria-label="Search" onclick="">
-            <!-- pesquisar depois como faz quando der enter pra pesquisar -->
-        </form>
-        <div class="divBtn">
-            <button class="btnHome btnDadosPessoais" type="button">Dados pessoais</button>
-        </div>
-        <div class="divBtn">
-            <button  class="btnHome btnLivros" type="button">Livros</button>
-        </div>
-        <div class="divBtn">
-            <button class="btnHome btnRenovar" type="button">Renovar</button>
-        </div>
-        <div class="divBtn">
-            <button class="btnHome btnPendentes" type="button">Pendentes</button>
-        </div>
-        <div class="divBtn">
-            <button class="btnHome btnEditarUsuario" type="button">Editar usuário</button>
-        </div>
-        <div class="divBtn">
-            <button class="btnGreen btnLogout" type="button">Sair</button>
-        </div>
+        <%@ include file="menu.jsp"%>>
     </div>
     <div class="right">
-        <img src="assets/img.svg" alt="menina lendo livro">
+<%--        <img src="assets/img.svg" alt="menina lendo livro">--%>
+        <table>
+            <% for (Livro l : livros) {%>
+            <tr>
+                <td> <%= l.getTitulo() %></td>
+                <td> <%= l.getAutor() %></td>
+            </tr>
+            <% } %>
+        </table>
     </div>
     </div>
 </body>

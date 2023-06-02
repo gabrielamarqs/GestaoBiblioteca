@@ -47,8 +47,7 @@
                    id="inputDtaPublicacao">
         </div>
         <div class="divCadastroLivro cadastrar">
-            <label class="label labelTitulo" for="btnCadastrarLivro">Cadastrar</label>
-            <button name="" type="submit" class="" id="btnCadastrarLivro">
+            <button name="" type="submit" class="" id="btnCadastrarLivro">Cadastrar</button>
         </div>
     </form>
 </div>

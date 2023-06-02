@@ -18,7 +18,7 @@
             <span>Logue na sua conta</span>
         </div>
         <div class="form">
-        <form action="/loginn" method="post">
+        <form action="loginn" method="post">
             <div class="email">
                 <label for="loginEmail" class="lEmail">Email</label>
                 <input type="email" class="input loginEmail" name="field_email" id="loginEmail" placeholder="name@example.com">
