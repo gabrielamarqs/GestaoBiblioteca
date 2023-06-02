@@ -25,11 +25,11 @@ public class LoginController extends HttpServlet {
             service.validateLogin(email, password, req);
 
             //se está aqui nessa é porque não ocorreu nenhum erro
-            resp.sendRedirect("http://localhost:8080/login/home.jsp");
+            resp.sendRedirect("http://localhost:8080/app/home.jsp");
 
         } catch (Exception e) {
             String msg = e.getMessage();
-            resp.sendRedirect("http://localhost:8080/login/index.jsp?msg=" + msg );
+            resp.sendRedirect("http://localhost:8080/app/index.jsp?msg=" + msg );
         }
 
 

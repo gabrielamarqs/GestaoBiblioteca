@@ -24,23 +24,23 @@
             <form action="/cadastrar" method="get">
                 <div class="divCadastro nome">
                     <label class="label inputNome" for="inputNome">Nome</label>
-                    <input type="text" class="inputCadastro" id="inputNome" placeholder="Informe seu nome">
+                    <input name="field_nome" type="text" class="inputCadastro" id="inputNome" placeholder="Informe seu nome">
                 </div>
                 <div class="divCadastro sobrenome">
                     <label class="label inputSobrenome" for="inputSobrenome">Sobrenome</label>
-                    <input type="text" class="inputCadastro" id="inputSobrenome" placeholder="Informe seu sobrenome">
+                    <input name="field_sobrenome" type="text" class="inputCadastro" id="inputSobrenome" placeholder="Informe seu sobrenome">
                 </div>
                 <div class="divCadastro email">
                     <label class="label inputEmail" for="exampleInputEmail1">Email</label>
-                    <input type="email" class="inputCadastro" id="exampleInputEmail1" placeholder="Informe seu email">
+                    <input name="field_email" type="email" class="inputCadastro" id="exampleInputEmail1" placeholder="Informe seu email">
                 </div>
                 <div class="divCadastro senha">
                     <label class="label inputSenha" for="inputSenha">Senha</label>
-                    <input type="password" class="inputCadastro" id="inputSenha" placeholder="Informe uma senha">
+                    <input name="field_senha" type="password" class="inputCadastro" id="inputSenha" placeholder="Informe uma senha">
                 </div>
                 <div class="divCadastro confirmaSenha">
                     <label class="label inputConfirmaSenha"  for="inputConfirmaSenha">Confirmar senha</label>
-                    <input type="password" class="inputCadastro" id="inputConfirmaSenha" placeholder="Confirme a senha">
+                    <input name="field_confirmaSenha" type="password" class="inputCadastro" id="inputConfirmaSenha" placeholder="Confirme a senha">
                 </div>
                 <div class="termos">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
