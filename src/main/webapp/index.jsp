@@ -37,7 +37,7 @@
             <p>OR</p>
             <div class="btnCadastrarDiv">
               <button type="submit" class="btnCadastrar">
-                  <a href="cadastro.jsp">
+                  <a  class="ancoraCadastro" href="cadastro.jsp">
                       Cadastrar
                   </a>
               </button>

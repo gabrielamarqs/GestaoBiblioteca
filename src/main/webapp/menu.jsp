@@ -22,5 +22,7 @@
   <button class="btnHome btnEditarUsuario" type="button">Editar usuário</button>
 </div>
 <div class="divBtn">
-  <a href="loginn" class="btnGreen btnLogout" type="button">Sair</a>
+  <button class="btnGreen">
+    <a href="loginn" class="btnLogout" type="button">Sair</a>
+  </button>
 </div>

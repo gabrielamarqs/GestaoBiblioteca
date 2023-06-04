@@ -28,6 +28,7 @@ public class Livro {
     @Column(name = "livro_numeroPaginas")
     private Integer numeroPaginas;
 
+    // perguntar do enum
     private enum situacao{
         DISPONIVEL,
         INDISPONIVEL,

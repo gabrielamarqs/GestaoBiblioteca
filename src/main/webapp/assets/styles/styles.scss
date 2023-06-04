@@ -2,12 +2,14 @@
   box-sizing: border-box;
 }
 
+$link-decoration: none !important;
+
 @import "cores";
 @import "imgLogo";
 @import "container";
 @import "left";
 @import "right";
-
+@import "btnCadastrar";
 
 body {
   .container {
@@ -88,15 +90,10 @@ body {
         }
         .btnCadastrarDiv {
           .btnCadastrar {
-            width: 430px;
-            height: 50px;
-            color: $green-01;
-            border: 2px solid $green-01;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: bold;
-            text-align: center;
-            background: white;
+            .ancoraCadastro {
+              text-decoration: $link-decoration;
+              color : $green-01;
+            }
           }
 
         }

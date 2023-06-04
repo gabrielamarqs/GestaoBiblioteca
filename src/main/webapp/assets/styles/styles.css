@@ -28,6 +28,17 @@
   align-items: center;
   text-align: center; }
 
+.btnCadastrar {
+  width: 430px;
+  height: 50px;
+  color: #92e3a9;
+  border: 2px solid #92e3a9;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  background: white; }
+
 body .container .left .form {
   padding: 10px;
   text-align: left; }
@@ -76,16 +87,9 @@ body .container .left .form {
       border: 0;
       font-weight: bold;
       text-align: center; }
-  body .container .left .form .btnCadastrarDiv .btnCadastrar {
-    width: 430px;
-    height: 50px;
-    color: #92e3a9;
-    border: 2px solid #92e3a9;
-    border-radius: 8px;
-    padding: 10px;
-    font-weight: bold;
-    text-align: center;
-    background: white; }
+  body .container .left .form .btnCadastrarDiv .btnCadastrar .ancoraCadastro {
+    text-decoration: none !important;
+    color: #92e3a9; }
   body .container .left .form p {
     text-align: center; }
 

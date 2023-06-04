@@ -1,21 +1,20 @@
 package com.ifpr.biblioteca.bibliotecaproject.controller;
 
-import com.ifpr.biblioteca.bibliotecaproject.service.LoginService;
+import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
 @WebServlet("/loginn")
 public class LoginController extends HttpServlet {
 
-    LoginService service;
+    AuthentificationService service;
 
     public LoginController() {
-        service = new LoginService();
+        service = new AuthentificationService();
     }
 
     @Override
@@ -24,7 +23,7 @@ public class LoginController extends HttpServlet {
         String email = req.getParameter("field_email");
         String password = req.getParameter("field_password");
 
-        LoginService service = new LoginService();
+        AuthentificationService service = new AuthentificationService();
         System.out.println("dsadsadsads");
 
         try {

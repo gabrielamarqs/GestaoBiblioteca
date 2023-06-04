@@ -24,7 +24,6 @@ List<Livro> livros =  (List<Livro>) request.getAttribute("attr_livros");
         <%@ include file="menu.jsp"%>>
     </div>
     <div class="right">
-<%--        <img src="assets/img.svg" alt="menina lendo livro">--%>
         <table>
             <% for (Livro l : livros) {%>
             <tr>

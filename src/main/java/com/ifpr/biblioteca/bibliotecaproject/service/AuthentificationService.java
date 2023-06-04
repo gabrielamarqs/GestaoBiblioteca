@@ -6,11 +6,12 @@ import com.ifpr.biblioteca.bibliotecaproject.repository.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-public class LoginService {
+
+public class AuthentificationService {
 
     UserRepository repository;
 
-    public LoginService() {
+    public AuthentificationService() {
         repository = new UserRepository();
     }
 
@@ -35,6 +36,7 @@ public class LoginService {
         }
 
         HttpSession session = request.getSession(true);
+        // se não tiver uma sessão ativa, cria
         session.setAttribute("usuario", usuario);
 
         return usuario;
@@ -48,6 +50,7 @@ public class LoginService {
 
     public  Usuario isUserLoggedIn(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
+        // se false quer dizer que se não tiver uma sessão ativa, não cria
         return  (Usuario) session.getAttribute("usuario");
     }
 
