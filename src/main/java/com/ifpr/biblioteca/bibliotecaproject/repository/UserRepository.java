@@ -24,4 +24,10 @@ public class UserRepository {
         transaction.commit();
         return user;
     }
+
+    public Usuario getUserByEmail(String email) throws NoResultException {
+        return entityManager.createQuery("select u from tb_usuarios u  where u.email = :email", Usuario.class).setParameter("email", email).getSingleResult();
+    }
+
+
 }
