@@ -37,6 +37,18 @@ public class ServletFilter implements Filter {
         } else {
             httpResp.sendRedirect("http://localhost:8080/app/index.jsp");
         }
+
+
+//        if (!true) {
+//        // o que é true ???
+//            System.out.println("Unauthorized access request");
+//            res.sendRedirect("login.html");
+//        } else {
+//            // pass the request along the filter chain
+//            chain.doFilter(req, res);
+//        }
+//
+//        chain.doFilter(request, response);
     }
 
     @Override

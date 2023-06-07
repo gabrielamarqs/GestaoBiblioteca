@@ -2,17 +2,17 @@ package com.ifpr.biblioteca.bibliotecaproject.service;
 
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import com.ifpr.biblioteca.bibliotecaproject.exception.UsuarioInexistenteException;
-import com.ifpr.biblioteca.bibliotecaproject.repository.UserRepository;
+import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 
 public class AuthentificationService {
 
-    UserRepository repository;
+    UsuarioRepository repository;
 
     public AuthentificationService() {
-        repository = new UserRepository();
+        repository = new UsuarioRepository();
     }
 
     public Usuario validateLogin(String email, String password, HttpServletRequest request) throws Exception {

@@ -3,6 +3,7 @@ package com.ifpr.biblioteca.bibliotecaproject.domain.entities;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "tb_usuarios")
 public class Usuario {
@@ -19,6 +20,17 @@ public class Usuario {
     private String email;
     @Column(name = "usuario_senha")
     private String senha;
+
+    @OneToMany(mappedBy = "usuario")
+    private Set<Emprestimo> emprestimo;
+
+    public Set<Emprestimo> getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(Set<Emprestimo> emprestimo) {
+        this.emprestimo = emprestimo;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -43,6 +55,7 @@ public class Usuario {
                 ", sobrenome='" + sobrenome + '\'' +
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
+                ", emprestimo=" + emprestimo +
                 '}';
     }
 

@@ -1,9 +1,10 @@
 package com.ifpr.biblioteca.bibliotecaproject.domain.entities;
 
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoLivro;
 import jakarta.persistence.*;
 
-import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "tb_livro")
 public class Livro {
@@ -21,19 +22,32 @@ public class Livro {
     private String editora;
     @Column(name = "livro_isbn")
     private String isbn;
-    @Column(name = "livro_dtaPublicacao")
-    private Date dataPublicacao;
     @Column(name = "livro_genero")
     private String genero;
     @Column(name = "livro_numeroPaginas")
     private Integer numeroPaginas;
 
-    // perguntar do enum
-    private enum situacao{
-        DISPONIVEL,
-        INDISPONIVEL,
-        INATIVO
-    };
+    @Enumerated(value = EnumType.STRING)
+    private SituacaoLivro situacaoLivro;
+
+    @OneToMany(mappedBy = "livro")
+    private Set<Emprestimo> emprestimo;
+
+    public SituacaoLivro getSituacaoLivro(SituacaoLivro disponivel) {
+        return situacaoLivro;
+    }
+
+    public void setSituacaoLivro(SituacaoLivro situacaoLivro) {
+        this.situacaoLivro = situacaoLivro;
+    }
+
+    public Set<Emprestimo> getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(Set<Emprestimo> emprestimo) {
+        this.emprestimo = emprestimo;
+    }
 
     public Long getCodigoLivro() {
         return codigoLivro;
@@ -83,14 +97,6 @@ public class Livro {
         this.isbn = isbn;
     }
 
-    public Date getDataPublicacao() {
-        return dataPublicacao;
-    }
-
-    public void setDataPublicacao(Date dataPublicacao) {
-        this.dataPublicacao = dataPublicacao;
-    }
-
     public String getGenero() {
         return genero;
     }
@@ -116,9 +122,10 @@ public class Livro {
                 ", sinopse='" + sinopse + '\'' +
                 ", editora='" + editora + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", dataPublicacao=" + dataPublicacao +
                 ", genero='" + genero + '\'' +
                 ", numeroPaginas=" + numeroPaginas +
+                ", situacaoLivro=" + situacaoLivro +
+                ", emprestimo=" + emprestimo +
                 '}';
     }
 

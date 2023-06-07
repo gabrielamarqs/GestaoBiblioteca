@@ -1,5 +1,6 @@
 package com.ifpr.biblioteca.bibliotecaproject.controller;
 
+import com.ifpr.biblioteca.bibliotecaproject.exception.UsuarioInexistenteException;
 import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,13 +19,12 @@ public class LoginController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException, UsuarioInexistenteException {
 
         String email = req.getParameter("field_email");
         String password = req.getParameter("field_password");
 
         AuthentificationService service = new AuthentificationService();
-        System.out.println("dsadsadsads");
 
         try {
             service.validateLogin(email, password, req);
@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
 
         } catch (Exception e) {
             String msg = e.getMessage();
-            resp.sendRedirect("http://localhost:8080/app/index.jsp?msg=" + msg );
+            resp.sendRedirect("http://localhost:8080/app/index.jsp");
         }
 
 
@@ -44,7 +44,6 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
 
         service.logout(req);
-
 
         resp.sendRedirect("http://localhost:8080/app/index.jsp");
 

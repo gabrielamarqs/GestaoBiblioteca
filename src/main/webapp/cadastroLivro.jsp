@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Cadastro Livro</title>
 </head>
 <body>
 <div class="container">
@@ -50,6 +50,11 @@
             <button name="" type="submit" class="" id="btnCadastrarLivro">Cadastrar</button>
         </div>
     </form>
+    <div class="divVoltar voltar">
+        <button name="" type="submit" class="btnVoltar" id="btnVoltar">
+            <a href="livro.jsp">Voltar</a>
+        </button>
+    </div>
 </div>
 </body>
 </html>

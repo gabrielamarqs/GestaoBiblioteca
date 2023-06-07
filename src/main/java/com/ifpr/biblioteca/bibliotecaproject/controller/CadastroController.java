@@ -1,8 +1,7 @@
 package com.ifpr.biblioteca.bibliotecaproject.controller;
 
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
-import com.ifpr.biblioteca.bibliotecaproject.repository.UserRepository;
-import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
+import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,11 +14,11 @@ import java.io.IOException;
 @WebServlet(value = "/cadastro")
 public class CadastroController extends HttpServlet {
     Usuario user;
-    UserRepository userRepository;
+    UsuarioRepository usuarioRepository;
 
     public CadastroController() {
         user = new Usuario();
-        userRepository = new UserRepository();
+        usuarioRepository = new UsuarioRepository();
     }
 
 
@@ -46,7 +45,7 @@ public class CadastroController extends HttpServlet {
         user.setEmail(fieldEmail);
         user.setSenha(fieldSenha);
 
-        userRepository.create(user);
+        usuarioRepository.create(user);
 
         // até aqui usuário sendo criado
         // TODO
