@@ -10,7 +10,11 @@
 
 <%
     List<Livro> livros = (List<Livro>) request.getAttribute("attr_livros");
+
+    Boolean isAdmin = (Boolean) request.getSession().getAttribute("admin");
 %>
+
+
 
 <html>
 <head>
@@ -27,17 +31,25 @@
     </div>
     <div class="right">
         <div class="header">
-            <form method="post" action="cadastro_livro">
+            <form method="post" action="controller_livro">
+                <div>
+                    <button>
+                        <a href="cadastroLivro.jsp">
+                            Cadastrar Livros
+                        </a>>
+                    </button>
+                </div>
+                <div>
+                    <button name="action" value="livrosIndisponiveis">
+                        Livros Emprestados
+                    </button>
+                </div>
+                <div>
+                    <button name="action" value="livrosAtrasados">
+                        Livros Atrasados
+                    </button>
+                </div>
 
-                <button name="action" value="livroCadastrar">
-                    Cadastrar Livros
-                </button>
-                <button name="action" value="livrosIndisponiveis">
-                   Livros Emprestados
-                </button>
-                <button name="action" value="livrosAtrasados">
-                    Livros Atrasados
-                </button>
             </form>
 
         </div>

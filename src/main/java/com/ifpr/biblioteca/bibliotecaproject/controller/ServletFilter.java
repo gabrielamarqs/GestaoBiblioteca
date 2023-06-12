@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebFilter("/home")
+//@WebFilter(value = "/home")
+// TODO:
+// depois testar essa servlet
 public class ServletFilter implements Filter {
     AuthentificationService service;
 
@@ -38,17 +40,6 @@ public class ServletFilter implements Filter {
             httpResp.sendRedirect("http://localhost:8080/app/index.jsp");
         }
 
-
-//        if (!true) {
-//        // o que é true ???
-//            System.out.println("Unauthorized access request");
-//            res.sendRedirect("login.html");
-//        } else {
-//            // pass the request along the filter chain
-//            chain.doFilter(req, res);
-//        }
-//
-//        chain.doFilter(request, response);
     }
 
     @Override

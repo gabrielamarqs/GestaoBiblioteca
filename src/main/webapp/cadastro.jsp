@@ -46,16 +46,14 @@
                 <label class="label inputConfirmaSenha" for="inputConfirmaSenha">Confirmar senha</label>
                 <input name="field_confirmaSenha" type="password" class="inputCadastro" id="inputConfirmaSenha"
                        placeholder="Confirme a senha">
-<%--                <% if (request.getAttribute("mensagem") != null) { %>--%>
-<%--                <div class="mensagem-erro">--%>
-<%--                    <%= request.getAttribute("mensagem") %>--%>
-<%--                </div>--%>
-<%--                <% } %>--%>
+                <p>${message}</p>
+
             </div>
+            <!--
             <div class="termos">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Concordo com os termos e condições.</label>
-            </div>
+            </div> -->
             <div class="btnCadastrarDiv">
                 <button type="submit" class="btnCadastrar">Cadastrar</button>
             </div>

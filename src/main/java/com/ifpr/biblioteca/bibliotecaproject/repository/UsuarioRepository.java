@@ -2,10 +2,13 @@ package com.ifpr.biblioteca.bibliotecaproject.repository;
 
 import com.ifpr.biblioteca.bibliotecaproject.connection.ConnectionFactory;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Emprestimo;
+import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
+
+import java.util.List;
 
 public class UsuarioRepository {
 
@@ -41,5 +44,13 @@ public class UsuarioRepository {
         return usuario;
     }
 
+    public List<Usuario> getAll() {
+        return entityManager.createQuery("SELECT u FROM tb_usuarios u", Usuario.class).getResultList();
+    }
 
+    public void delete(Usuario usuario){
+        entityManager.getTransaction().begin();
+        entityManager.remove(usuario);
+        entityManager.getTransaction().commit();
+    }
 }

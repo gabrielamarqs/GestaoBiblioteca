@@ -59,7 +59,8 @@ public class Emprestimo {
     }
 
     public void setDataDevolucao(LocalDate dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
+
+        this.dataDevolucao = dataEmprestimo.plusDays(7);
     }
 
     @Override

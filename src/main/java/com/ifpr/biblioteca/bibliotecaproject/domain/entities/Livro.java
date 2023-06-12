@@ -3,10 +3,13 @@ package com.ifpr.biblioteca.bibliotecaproject.domain.entities;
 import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoLivro;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity(name = "tb_livro")
+// TODO
+// mudar para tb_livros
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,18 +23,44 @@ public class Livro {
     private String sinopse;
     @Column(name = "livro_editora")
     private String editora;
-    @Column(name = "livro_isbn")
+    @Column(name = "livro_isbn", unique = true)
     private String isbn;
     @Column(name = "livro_genero")
     private String genero;
     @Column(name = "livro_numeroPaginas")
     private Integer numeroPaginas;
 
+    @Column(name = "livro_dtaPublicacao")
+    private LocalDate dtaPublicacao;
+
+    @Column(name = "livro_qtde")
+    private Integer quantidade;
+
     @Enumerated(value = EnumType.STRING)
     private SituacaoLivro situacaoLivro;
 
     @OneToMany(mappedBy = "livro")
     private Set<Emprestimo> emprestimo;
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public LocalDate getDtaPublicacao() {
+        return dtaPublicacao;
+    }
+
+    public void setDtaPublicacao(LocalDate dtaPublicacao) {
+        this.dtaPublicacao = dtaPublicacao;
+    }
+
+    public SituacaoLivro getSituacaoLivro() {
+        return situacaoLivro;
+    }
 
     public SituacaoLivro getSituacaoLivro(SituacaoLivro disponivel) {
         return situacaoLivro;

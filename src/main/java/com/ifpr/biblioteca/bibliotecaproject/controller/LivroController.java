@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/cadastro_livro")
+@WebServlet(value = "/controller_livro")
 public class LivroController extends HttpServlet {
     Livro book;
     LivroRepository livroRepository;
@@ -34,7 +34,7 @@ public class LivroController extends HttpServlet {
 
 
         if ("livroCadastrar".equals(action)) {
-
+            resp.sendRedirect("http://localhost:8080/app/");
             // TODO:
             // fazer meu cadastrar livro
             // fazer minhas regras de negocio la no emprestimo

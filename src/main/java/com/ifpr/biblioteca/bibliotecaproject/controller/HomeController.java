@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/home")
+@WebServlet(value = "/home")
 public class HomeController extends HttpServlet {
 
     LivroRepository livroRepository;

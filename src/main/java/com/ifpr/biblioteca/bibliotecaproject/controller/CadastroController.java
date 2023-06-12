@@ -1,7 +1,9 @@
 package com.ifpr.biblioteca.bibliotecaproject.controller;
 
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.Admin;
 import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
+import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,11 +15,11 @@ import java.io.IOException;
 
 @WebServlet(value = "/cadastro")
 public class CadastroController extends HttpServlet {
-    Usuario user;
+    Usuario usuario;
     UsuarioRepository usuarioRepository;
 
     public CadastroController() {
-        user = new Usuario();
+        usuario = new Usuario();
         usuarioRepository = new UsuarioRepository();
     }
 
@@ -31,27 +33,34 @@ public class CadastroController extends HttpServlet {
         String fieldSobrenome = req.getParameter("field_sobrenome");
         String fieldEmail = req.getParameter("field_email");
         String fieldSenha = req.getParameter("field_senha");
-        String fieldSenhaConfirma = req.getParameter("field_senhaConfirma");
+        String fieldSenhaConfirma = req.getParameter("field_confirmaSenha");
 
-        if (!fieldSenha.equals(fieldSenhaConfirma)) {
-            req.setAttribute("mensagem", "A senha está incorreta");
+        if (!fieldSenha.trim().equals(fieldSenhaConfirma.trim())) {
+            String message = "Senhas diferentes.";
+            req.setAttribute("message", message);
+            req.getRequestDispatcher("cadastro.jsp").forward(req, resp);
+        } else {
+            usuario.setNome(fieldNome);
+            usuario.setSobrenome(fieldSobrenome);
+            usuario.setEmail(fieldEmail);
+            usuario.setSenha(fieldSenha);
+            usuario.setAdmin(Admin.NAO);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("cadastro.jsp");
-            requestDispatcher.forward(req, resp);
+            usuarioRepository.create(usuario);
+
+            AuthentificationService service = new AuthentificationService();
+            try {
+                service.validateLogin(fieldEmail, fieldSenha, req);
+
+                //se está aqui nessa é porque não ocorreu nenhum erro
+                resp.sendRedirect("http://localhost:8080/app/home");
+            } catch (Exception e) {
+                resp.sendRedirect("http://localhost:8080/app/index.jsp");
+            }
         }
 
-        user.setNome(fieldNome);
-        user.setSobrenome(fieldSobrenome);
-        user.setEmail(fieldEmail);
-        user.setSenha(fieldSenha);
 
-        usuarioRepository.create(user);
 
-        // até aqui usuário sendo criado
-        // TODO
-        // tratar o negocio da senha
-        // depois que cadastrar mandar pra página home
-        // se tiver email repetido mostrar que o email ta repetido
 
 
     }

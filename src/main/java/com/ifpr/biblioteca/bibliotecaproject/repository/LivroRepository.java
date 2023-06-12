@@ -3,6 +3,7 @@ package com.ifpr.biblioteca.bibliotecaproject.repository;
 import com.ifpr.biblioteca.bibliotecaproject.connection.ConnectionFactory;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Emprestimo;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro;
+import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -31,6 +32,11 @@ public class LivroRepository {
     public Livro findById(Long id) {
         Livro livro = entityManager.find(Livro.class, id);
         return livro;
+    }
+
+    public Livro findByIsbn(String isbn) {
+        return entityManager.createQuery("select l from tb_livro l  where l.isbn = :isbn", Livro.class).setParameter("isbn", isbn).getSingleResult();
+
     }
 
     // listar todos os livros

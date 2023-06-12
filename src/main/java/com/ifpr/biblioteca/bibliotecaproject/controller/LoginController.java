@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/loginn")
+@WebServlet(value = "/loginn")
 public class LoginController extends HttpServlet {
 
     AuthentificationService service;
@@ -33,7 +33,6 @@ public class LoginController extends HttpServlet {
             resp.sendRedirect("http://localhost:8080/app/home");
 
         } catch (Exception e) {
-            String msg = e.getMessage();
             resp.sendRedirect("http://localhost:8080/app/index.jsp");
         }
 
@@ -48,4 +47,6 @@ public class LoginController extends HttpServlet {
         resp.sendRedirect("http://localhost:8080/app/index.jsp");
 
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.ifpr.biblioteca.bibliotecaproject.service;
 
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.Admin;
 import com.ifpr.biblioteca.bibliotecaproject.exception.UsuarioInexistenteException;
 import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,9 +36,16 @@ public class AuthentificationService {
             throw new UsuarioInexistenteException("Essa não é a senha correta.");
         }
 
-        HttpSession session = request.getSession(true);
-        // se não tiver uma sessão ativa, cria
-        session.setAttribute("usuario", usuario);
+        if (usuario.getAdmin() == Admin.SIM) {
+            HttpSession session = request.getSession(true);
+            // se não tiver uma sessão ativa, cria
+            session.setAttribute("usuario", usuario);
+            session.setAttribute("admin", true);
+        } else {
+            HttpSession session = request.getSession(true);
+            // se não tiver uma sessão ativa, cria
+            session.setAttribute("usuario", usuario);
+        }
 
         return usuario;
     }

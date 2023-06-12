@@ -9,10 +9,17 @@
 <html>
 <head>
     <title>Cadastro Livro</title>
+    <link href="assets/styles/cadastrolivro.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <form action="cadastro_livro" method="post">
+        <div class="divTitulo">
+            <h2>Cadastro Livro</h2>
+        </div>
         <div class="divCadastroLivro titulo">
             <label class="label labelTitulo" for="inputTitulo">Titulo:</label>
             <input name="field_titulo" type="text" class="inputCadastroLivro tituloLivro" id="inputTitulo">
@@ -43,18 +50,19 @@
         </div>
         <div class="divCadastroLivro dtaPublicacao">
             <label class="label labelPublicacao" for="inputDtaPublicacao">Data de Publicação:</label>
-            <input name="field_publicacao" type="text" class="inputCadastroLivro publicacaoLivro"
+            <input name="field_publicacao" type="date" class="inputCadastroLivro publicacaoLivro"
                    id="inputDtaPublicacao">
+            <p>${message}</p>
         </div>
-        <div class="divCadastroLivro cadastrar">
-            <button name="" type="submit" class="" id="btnCadastrarLivro">Cadastrar</button>
+        <div class="divCadastroLivro divBtn">
+            <button name="" type="submit" class="btnLivro" id="btnCadastrarLivro">Cadastrar</button>
+        </div>
+        <div class="divCadastroLivro divBtn">
+            <button name="" type="submit" class="btnLivro" id="btnVoltar">
+                <a href="controller_livro">Voltar</a>
+            </button>
         </div>
     </form>
-    <div class="divVoltar voltar">
-        <button name="" type="submit" class="btnVoltar" id="btnVoltar">
-            <a href="livro.jsp">Voltar</a>
-        </button>
-    </div>
 </div>
 </body>
 </html>

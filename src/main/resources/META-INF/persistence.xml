@@ -8,7 +8,7 @@
     <persistence-unit name="sistema_biblioteca">
 
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/sistema_biblioteca?useSSL=false&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/sistema_biblioteca?useSSL=false&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true" />
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 
             <property name="jakarta.persistence.jdbc.user" value="gabriela" />

@@ -1,5 +1,8 @@
 package com.ifpr.biblioteca.bibliotecaproject.domain.entities;
 
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.Admin;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoLivro;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoUsuario;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -20,6 +23,28 @@ public class Usuario {
     private String email;
     @Column(name = "usuario_senha")
     private String senha;
+
+    @Enumerated(value = EnumType.STRING)
+    private Admin admin;
+
+    @Enumerated(value = EnumType.STRING)
+    private SituacaoUsuario situacaoUsuario;
+
+    public SituacaoUsuario getSituacaoUsuario() {
+        return situacaoUsuario;
+    }
+
+    public void setSituacaoUsuario(SituacaoUsuario situacaoUsuario) {
+        this.situacaoUsuario = situacaoUsuario;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 
     @OneToMany(mappedBy = "usuario")
     private Set<Emprestimo> emprestimo;
