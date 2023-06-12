@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  border: 2px solid gray;
+  width: 950px;
+  height: 720px;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-align: center;
+
+
+
+  .divTitulo {
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+  }
+
+  .divCadastroLivro {
+    padding: 15px;
+
+
+    .btnLivro {
+      text-align: center;
+      width: 430px;
+      height: 50px;
+      border-radius: 8px;
+      border: 2px solid;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+}
