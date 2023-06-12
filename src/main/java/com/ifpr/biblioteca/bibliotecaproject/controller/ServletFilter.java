@@ -12,6 +12,9 @@ import java.io.IOException;
 //@WebFilter(value = "/home")
 // TODO:
 // depois testar essa servlet
+
+// TODO
+// por dentro de outra pasta
 public class ServletFilter implements Filter {
     AuthentificationService service;
 

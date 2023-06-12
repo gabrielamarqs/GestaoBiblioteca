@@ -70,6 +70,18 @@ public class Livro {
         this.situacaoLivro = situacaoLivro;
     }
 
+//    public SituacaoLivro setSituacaoLivro(SituacaoLivro situacaoLivro) {
+//        if (isbn == null) {
+//            return SituacaoLivro.INEXISTENTE;
+//        }
+//        if (getQuantidade() == 0) {
+//            return SituacaoLivro.INDISPONIVEL;
+//        } else if (getQuantidade() > 0) {
+//            return SituacaoLivro.DISPONIVEL;
+//        }
+//        return situacaoLivro;
+//    }
+
     public Set<Emprestimo> getEmprestimo() {
         return emprestimo;
     }

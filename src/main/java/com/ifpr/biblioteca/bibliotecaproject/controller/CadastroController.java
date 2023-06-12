@@ -2,6 +2,7 @@ package com.ifpr.biblioteca.bibliotecaproject.controller;
 
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import com.ifpr.biblioteca.bibliotecaproject.domain.enums.Admin;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoUsuario;
 import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
 import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
 import jakarta.servlet.RequestDispatcher;
@@ -45,6 +46,7 @@ public class CadastroController extends HttpServlet {
             usuario.setEmail(fieldEmail);
             usuario.setSenha(fieldSenha);
             usuario.setAdmin(Admin.NAO);
+            usuario.setSituacaoUsuario(SituacaoUsuario.LIVRE);
 
             usuarioRepository.create(usuario);
 

@@ -17,10 +17,21 @@ public class Emprestimo {
     @ManyToOne
     @JoinColumn(name = "livro_codigo")
     private Livro livro;
-    @Column
+    @Column(name = "livro_dtaEmprestimo")
     private LocalDate dataEmprestimo;
 
+    @Column(name = "livro_renovacao")
+    private Integer renovacao;
+    @Column(name = "livro_dtaEmprestimo")
     private LocalDate dataDevolucao;
+
+    public Integer getRenovacao() {
+        return renovacao;
+    }
+
+    public void setRenovacao(Integer renovacao) {
+        this.renovacao = renovacao;
+    }
 
     public Long getCodigoEmprestimo() {
         return codigoEmprestimo;

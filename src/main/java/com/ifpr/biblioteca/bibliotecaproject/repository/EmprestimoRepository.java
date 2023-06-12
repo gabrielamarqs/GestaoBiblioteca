@@ -39,4 +39,8 @@ public class EmprestimoRepository {
         entityManager.remove(emprestimo);
         entityManager.getTransaction().commit();
     }
+
+    public List<Emprestimo> getAllEmprestimoUsuario() {
+        return entityManager.createQuery("SELECT e FROM tb_emprestimo e", Emprestimo.class).getResultList();
+    }
 }

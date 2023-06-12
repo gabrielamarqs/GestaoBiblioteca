@@ -1,7 +1,6 @@
 package com.ifpr.biblioteca.bibliotecaproject.domain.entities;
 
 import com.ifpr.biblioteca.bibliotecaproject.domain.enums.Admin;
-import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoLivro;
 import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoUsuario;
 import jakarta.persistence.*;
 

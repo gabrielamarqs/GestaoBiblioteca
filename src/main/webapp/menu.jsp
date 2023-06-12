@@ -25,7 +25,7 @@
 	<% if (isAdmin != null && isAdmin) { %>
 	<div class="divBtn">
 		<button class="btnHome btnPendentes" type="button">
-			<a>
+			<a href="emprestimo.jsp">
 				Emprestimos
 			</a>
 		</button>
