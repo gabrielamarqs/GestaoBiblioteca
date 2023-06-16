@@ -4,5 +4,7 @@ public enum SituacaoLivro {
     DISPONIVEL,
     INATIVO,
     INDISPONIVEL,
-    INEXISTENTE
+    INEXISTENTE,
+
+    EMPRESTADO
 }

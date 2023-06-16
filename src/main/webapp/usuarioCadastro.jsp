@@ -16,12 +16,12 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container2">
     <div class="form">
         <div class="titulo">
             <span>Cadastro</span>
         </div>
-        <form action="cadastro" method="POST">
+        <form action="cadastro?action=usuarioCadastro" method="POST">
             <div class="divCadastro nome">
                 <label class="label inputNome" for="inputNome">Nome</label>
                 <input name="field_nome" type="text" class="inputCadastro" id="inputNome"

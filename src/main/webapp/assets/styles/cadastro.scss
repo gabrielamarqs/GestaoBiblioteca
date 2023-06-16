@@ -6,6 +6,8 @@
 
 @import "btnCadastrar";
 @import "cores";
+@import "biblioteca";
+
 
 html{
   height: 100vh;
@@ -19,7 +21,7 @@ body {
   height: 100vh;
   background: $bgGray;
 }
-.container {
+.container2 {
   width: 950px;
   height: 720px;
   border-radius: 30px;

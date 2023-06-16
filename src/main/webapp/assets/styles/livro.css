@@ -8,9 +8,8 @@
   font-size: 16px;
   font-weight: bold; }
 
-.container {
+.biblioteca {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
   display: grid;
   grid-template-columns: 2fr 5fr;
   height: 100vh; }
@@ -30,8 +29,8 @@
   text-align: center; }
 
 .btnGreen {
-  width: 430px;
-  height: 50px;
+  width: 450px;
+  height: 70px;
   background: #92e3a9;
   color: white;
   border-radius: 8px;
@@ -43,8 +42,8 @@
     background: #baf8cb; }
 
 .btnHome {
-  width: 430px;
-  height: 50px;
+  width: 450px;
+  height: 70px;
   background: #f1f3f6;
   border-radius: 8px;
   border: 2px solid #92e3a9;
@@ -54,13 +53,13 @@
     pointer-events: auto;
     background: #baf8cb; }
 
-.container .right {
+.container2 .right {
   display: grid;
   grid-auto-rows: auto;
   justify-content: center;
   text-align: center;
   grid-template-rows: 30vh 70vh; }
-  .container .right .header {
+  .container2 .right .header {
     align-items: start;
     width: 100%; }
 

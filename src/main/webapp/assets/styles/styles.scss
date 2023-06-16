@@ -6,35 +6,41 @@ $link-decoration: none !important;
 
 @import "cores";
 @import "imgLogo";
-@import "container";
+@import "biblioteca";
 @import "left";
 @import "right";
 @import "btnCadastrar";
 
 body {
-  .container {
+  width: 100%;
+}
 
+.container {
+  .biblioteca {
     .left {
+
+      justify-content: center;
+      text-align: center;
+      background: white;
+      align-items: center;
 
       .imgLogo {
       }
 
-      .form {
-        padding: 10px;
+      .formDiv {
         text-align: left;
-
         .input{
           margin-top: 10px;
         }
         .email {
-          padding-top: 30px;
+          padding-top: 15px;
           .lEmail {
-            font-size: 16px;
+            font-size: 20px;
           }
           .loginEmail {
-              font-size: 14px;
-              width: 430px;
-              height: 50px;
+              font-size: 18px;
+              width: 450px;
+              height: 70px;
               background: $bgGray;
               color: black;
               border: 0;
@@ -47,16 +53,17 @@ body {
         .password {
           padding-top: 30px;
           .lPassword {
-            font-size: 16px;
+            font-size: 20px;
           }
 
           .passwordDiv {
+            font-size: 25px;
+
             .loginPassword {
               text-align: left;
 
-              font-size: 14px;
-              width: 430px;
-              height: 50px;
+              width: 450px;
+              height: 70px;
               background: $bgGray;
               color: black;
               border: 0;
@@ -74,11 +81,13 @@ body {
 
         }
         .btnLoginDiv {
-          padding-top: 20px;
+          padding-top: 50px;
 
           .btnLogin {
-            width: 430px;
-            height: 50px;
+            font-size: 18px;
+
+            width: 450px;
+            height: 70px;
             background: $green-01;
             color: white;
             border-radius: 8px;
@@ -90,6 +99,7 @@ body {
         }
         .btnCadastrarDiv {
           .btnCadastrar {
+
             .ancoraCadastro {
               text-decoration: $link-decoration;
               color : $green-01;

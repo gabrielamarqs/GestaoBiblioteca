@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-//@WebFilter(value = "/home")
+@WebFilter(value = {"/home", "/livros", "/usuarios"})
 // TODO:
 // depois testar essa servlet
 

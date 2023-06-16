@@ -4,8 +4,8 @@
   padding: 0; }
 
 .btnCadastrar {
-  width: 430px;
-  height: 50px;
+  width: 450px;
+  height: 70px;
   color: #92e3a9;
   border: 2px solid #92e3a9;
   border-radius: 8px;
@@ -13,6 +13,12 @@
   font-weight: bold;
   text-align: center;
   background: white; }
+
+.biblioteca {
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  height: 100vh; }
 
 html {
   height: 100vh; }
@@ -25,7 +31,7 @@ body {
   height: 100vh;
   background: #f1f3f6; }
 
-.container {
+.container2 {
   width: 950px;
   height: 720px;
   border-radius: 30px;
@@ -33,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .container .form {
+  .container2 .form {
     width: 890px;
     height: 100%;
     border-radius: 30px;
@@ -42,41 +48,41 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 14px; }
-    .container .form .titulo {
+    .container2 .form .titulo {
       text-transform: uppercase; }
-      .container .form .titulo span {
+      .container2 .form .titulo span {
         margin-top: 30px;
         font-size: 30px;
         display: block; }
-    .container .form .divCadastro {
+    .container2 .form .divCadastro {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 10px;
       text-align: left; }
-      .container .form .divCadastro input {
+      .container2 .form .divCadastro input {
         align-self: center; }
-      .container .form .divCadastro .label {
+      .container2 .form .divCadastro .label {
         padding-bottom: .75rem;
         padding-left: .425rem; }
-      .container .form .divCadastro .inputCadastro {
+      .container2 .form .divCadastro .inputCadastro {
         width: 400px;
         height: 50px;
         border-radius: 8px;
         background: #eefcf2;
         border: 1px solid #eefcf2;
         padding: 10px; }
-    .container .form .btnCadastrarDiv {
+    .container2 .form .btnCadastrarDiv {
       justify-content: center;
       align-items: center;
       text-align: center; }
-    .container .form .termos {
+    .container2 .form .termos {
       padding: 10px; }
-    .container .form .cadastroOut {
+    .container2 .form .cadastroOut {
       justify-content: center;
       align-items: center;
       text-align: center; }
-      .container .form .cadastroOut .cadastroOutLogin {
+      .container2 .form .cadastroOut .cadastroOutLogin {
         color: #92e3a9; }
 
 /*# sourceMappingURL=cadastro.css.map */

@@ -53,14 +53,25 @@
     pointer-events: auto;
     background: #baf8cb; }
 
-.container2 .right {
-  display: grid;
-  grid-auto-rows: auto;
-  justify-content: center;
-  text-align: center;
-  grid-template-rows: 30vh 70vh; }
-  .container2 .right .header {
-    align-items: start;
-    width: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
-/*# sourceMappingURL=todosUsuarios.css.map */
+.container-fluid .biblioteca {
+  font-size: 20px; }
+  .container-fluid .biblioteca .left {
+    align-items: center; }
+    .container-fluid .biblioteca .left .divImagem {
+      padding-bottom: 20px; }
+    .container-fluid .biblioteca .left .divBtn {
+      padding: 20px 0 20px 0; }
+  .container-fluid .biblioteca .right .main .table-container {
+    overflow: auto;
+    padding: 10px;
+    max-height: 100vh; }
+  .container-fluid .biblioteca .right .main th:first-child {
+    position: sticky;
+    left: 0; }
+
+/*# sourceMappingURL=usuario.css.map */

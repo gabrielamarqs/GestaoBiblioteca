@@ -6,6 +6,7 @@ import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class LivroRepository {
 
     // listar todos os livros
     public List<Livro> getAll() {
-        return entityManager.createQuery("SELECT l FROM tb_livro l", Livro.class).getResultList();
+        return entityManager.createQuery("SELECT l FROM tb_livro l order by l.titulo", Livro.class).getResultList();
     }
 
     // alterar
@@ -56,5 +57,16 @@ public class LivroRepository {
         entityManager.getTransaction().begin();
         entityManager.remove(livro);
         entityManager.getTransaction().commit();
+    }
+
+    public List<Livro> getByName(String tituloBuscado) {
+
+        TypedQuery<Livro> query =  entityManager.createQuery("SELECT l FROM tb_livro l WHERE l.titulo LIKE :titulo", Livro.class);
+
+        query =  query.setParameter("titulo", "%" +tituloBuscado + "%");
+
+        return query.getResultList();
+
+
     }
 }

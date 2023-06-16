@@ -23,6 +23,7 @@
             -->
             <property name="hibernate.show_sql"   value="true" />
             <property name="hibernate.format_sql" value="true" />
+            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/tb_livro.sql"/>
 
         </properties>
 

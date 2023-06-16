@@ -30,33 +30,12 @@ public class Livro {
     @Column(name = "livro_numeroPaginas")
     private Integer numeroPaginas;
 
-    @Column(name = "livro_dtaPublicacao")
-    private LocalDate dtaPublicacao;
-
-    @Column(name = "livro_qtde")
-    private Integer quantidade;
-
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "livro_situacao")
     private SituacaoLivro situacaoLivro;
 
     @OneToMany(mappedBy = "livro")
     private Set<Emprestimo> emprestimo;
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public LocalDate getDtaPublicacao() {
-        return dtaPublicacao;
-    }
-
-    public void setDtaPublicacao(LocalDate dtaPublicacao) {
-        this.dtaPublicacao = dtaPublicacao;
-    }
 
     public SituacaoLivro getSituacaoLivro() {
         return situacaoLivro;
@@ -69,18 +48,6 @@ public class Livro {
     public void setSituacaoLivro(SituacaoLivro situacaoLivro) {
         this.situacaoLivro = situacaoLivro;
     }
-
-//    public SituacaoLivro setSituacaoLivro(SituacaoLivro situacaoLivro) {
-//        if (isbn == null) {
-//            return SituacaoLivro.INEXISTENTE;
-//        }
-//        if (getQuantidade() == 0) {
-//            return SituacaoLivro.INDISPONIVEL;
-//        } else if (getQuantidade() > 0) {
-//            return SituacaoLivro.DISPONIVEL;
-//        }
-//        return situacaoLivro;
-//    }
 
     public Set<Emprestimo> getEmprestimo() {
         return emprestimo;

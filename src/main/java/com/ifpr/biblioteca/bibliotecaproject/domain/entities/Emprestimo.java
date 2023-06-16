@@ -6,9 +6,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity(name = "tb_emprestimo")
+// TODO
+// mostrar pra emprestimos depois
 public class Emprestimo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "emprestimo_codigo")
     private Long codigoEmprestimo;
     @ManyToOne
     @JoinColumn(name = "usuario_codigo")
@@ -22,7 +26,7 @@ public class Emprestimo {
 
     @Column(name = "livro_renovacao")
     private Integer renovacao;
-    @Column(name = "livro_dtaEmprestimo")
+    @Column(name = "livro_dtaDevolucao")
     private LocalDate dataDevolucao;
 
     public Integer getRenovacao() {
@@ -69,9 +73,21 @@ public class Emprestimo {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(LocalDate dataDevolucao) {
+    public void setDataDevolucao() {
 
         this.dataDevolucao = dataEmprestimo.plusDays(7);
+    }
+
+    @Override
+    public String toString() {
+        return "Emprestimo{" +
+//                "codigoEmprestimo=" + codigoEmprestimo +
+                ", usuario=" + usuario +
+                ", livro=" + livro +
+                ", dataEmprestimo=" + dataEmprestimo +
+                ", renovacao=" + renovacao +
+                ", dataDevolucao=" + dataDevolucao +
+                '}';
     }
 
     @Override

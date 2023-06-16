@@ -23,10 +23,19 @@ public class CadastroController extends HttpServlet {
         usuario = new Usuario();
         usuarioRepository = new UsuarioRepository();
     }
-
-
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+
+        if (action != null && action.equals("telaCadastro")){
+            resp.sendRedirect("http://localhost:8080/app/usuarioCadastro.jsp");
+        } else if (action != null && action.equals("usuarioCadastro")){
+            this.cadastrar(req, resp);
+        }
+
+    }
+
+    protected void cadastrar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         // okay recebo aqui meus atributos
         
@@ -39,7 +48,7 @@ public class CadastroController extends HttpServlet {
         if (!fieldSenha.trim().equals(fieldSenhaConfirma.trim())) {
             String message = "Senhas diferentes.";
             req.setAttribute("message", message);
-            req.getRequestDispatcher("cadastro.jsp").forward(req, resp);
+            req.getRequestDispatcher("usuarioCadastro.jsp").forward(req, resp);
         } else {
             usuario.setNome(fieldNome);
             usuario.setSobrenome(fieldSobrenome);

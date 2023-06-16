@@ -24,11 +24,8 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //chmar validacao de login
-
         List<Livro> livros = livroRepository.getAll();
         req.setAttribute("attr_livros", livros);
-
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("home.jsp");
         requestDispatcher.forward(req, resp);

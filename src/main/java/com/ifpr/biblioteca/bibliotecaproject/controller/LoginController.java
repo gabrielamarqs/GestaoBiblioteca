@@ -27,13 +27,14 @@ public class LoginController extends HttpServlet {
         AuthentificationService service = new AuthentificationService();
 
         try {
-            service.validateLogin(email, password, req);
 
-            //se está aqui nessa é porque não ocorreu nenhum erro
+            service.validateLogin(email, password, req);
             resp.sendRedirect("http://localhost:8080/app/home");
 
         } catch (Exception e) {
+
             resp.sendRedirect("http://localhost:8080/app/index.jsp");
+
         }
 
 
@@ -47,6 +48,5 @@ public class LoginController extends HttpServlet {
         resp.sendRedirect("http://localhost:8080/app/index.jsp");
 
     }
-
 
 }
