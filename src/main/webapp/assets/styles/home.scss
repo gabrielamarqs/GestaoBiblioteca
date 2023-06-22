@@ -53,11 +53,17 @@ body{
           max-height: 100vh;
           $link-color: $green-01;
 
+          .table {
+            table-layout: fixed;
+            max-width: 100%;
+
+            th:first-child {
+              position: sticky;
+              left: 0;
+            }
+          }
         }
-        th:first-child {
-          position: sticky;
-          left: 0;
-        }
+
 
       }
 

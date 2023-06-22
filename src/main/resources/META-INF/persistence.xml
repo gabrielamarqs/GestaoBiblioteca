@@ -9,7 +9,7 @@
 
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/sistema_biblioteca?useSSL=false&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true" />
-            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
             <property name="jakarta.persistence.jdbc.user" value="gabriela" />
             <property name="jakarta.persistence.jdbc.password" value="daniela" />
@@ -21,9 +21,9 @@
             create
             drop-and-create
             -->
-            <property name="hibernate.show_sql"   value="true" />
-            <property name="hibernate.format_sql" value="true" />
-            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/tb_livro.sql"/>
+<!--            <property name="hibernate.show_sql"   value="true" />
+            <property name="hibernate.format_sql" value="true" />-->
+            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/dados-iniciais.sql"/>
 
         </properties>
 

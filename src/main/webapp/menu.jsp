@@ -19,45 +19,46 @@
 	</div>
 
 	<div class="divBtn">
-		<button class="btnHome btnLivros" type="button">
-			<a href="livros">Home</a>
-		</button>
+		<a href="livros" type="button">
+			<button class="btnHome btnLivros" type="button">
+				Home
+			</button>
+		</a>
 	</div>
 
 	<div class="divBtn">
-		<button class="btnHome btnDadosPessoais" type="button">
-			<a href="usuarios?action=usuario">
+		<a href="usuarios?action=usuario">
+			<button class="btnHome btnDadosPessoais" type="button">
 				Dados pessoais
-			</a>
-		</button>
+			</button>
+		</a>
 	</div>
 
 	<% if (isAdminMenu != null && isAdminMenu) { %>
 
 	<div class="divBtn">
-		<button class="btnHome btnPendentes" type="button">
-			<a href="emprestimo.jsp">
+		<a href="emprestimos?action=livrosEmprestados">
+			<button class="btnHome btnPendentes" type="button">
 				Emprestimos
-			</a>
-		</button>
+			</button>
+		</a>
 	</div>
 
 	<div class="divBtn">
-		<button class="btnHome btnEditarUsuario" type="button">
-
-			<a href="controller_all_users">
-<%--				esse cambiar depois também--%>
+		<a href="controller_all_users">
+			<button class="btnHome btnEditarUsuario" type="button">
 				Editar usuario
-			</a>
-		</button>
-
+			</button>
+		</a>
 	</div>
 
 	<% } %>
 
 	<div class="divBtn">
-		<button class="btnGreen">
-			<a href="loginn" class="btnLogout" type="button">Sair</a>
-		</button>
+		<a href="loginn" class="btnLogout" type="button">
+			<button class="btnGreen">
+				Sair
+			</button>
+		</a>
 	</div>
 </div>

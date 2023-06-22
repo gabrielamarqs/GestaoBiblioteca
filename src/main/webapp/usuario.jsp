@@ -1,4 +1,5 @@
-<%@ page import="com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario" %><%--
+<%@ page import="com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: gabrielamarques
   Date: 10/06/2023
@@ -9,6 +10,10 @@
 
 <%
 	Usuario usuarios = (Usuario) request.getAttribute("attr_usuario");
+
+	List<Object[]> emprestimosUsuario = (List<Object[]>) request.getAttribute("attr_usuarioHistorico");
+
+
 %>
 
 <html>
@@ -28,29 +33,63 @@
 		<div class="left">
 			<%@ include file="menu.jsp" %>
 		</div>
-		<div class="right">
-			<table class="table table-success table-striped">
-				<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Sobrenome</th>
-					<th>Email</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>
-						<%= usuarios.getNome() %>
-					</td>
-					<td>
-						<%= usuarios.getSobrenome() %>
-					</td>
-					<td>
-						<%= usuarios.getEmail() %>
-					</td>
-				</tr>
-				</tbody>
-			</table>
+		<div class="tableUsuario">
+			<div class="right">
+				<table class="table table-success table-striped">
+					<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Sobrenome</th>
+						<th>Email</th>
+						<th>Situação</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>
+							<%= usuarios.getNome() %>
+						</td>
+						<td>
+							<%= usuarios.getSobrenome() %>
+						</td>
+						<td>
+							<%= usuarios.getEmail() %>
+						</td>
+						<td>
+							<%= usuarios.getSituacaoUsuario() %>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tableEmprestimo">
+				<table class="table table-success table-striped">
+					<thead>
+					<tr>
+						<th>Titulo</th>
+						<th>Data Empreśtimo</th>
+						<th>Data Devolução</th>
+					</tr>
+					</thead>
+					<tbody>
+					<% for (Object[] emprestimo : emprestimosUsuario) { %>
+
+					<tr>
+						<td>
+							<%= emprestimo[0] %>
+						</td>
+						<td>
+							<%= emprestimo[1] %>
+						</td>
+						<td>
+							<%= emprestimo[2] %>
+						</td>
+					</tr>
+					<% } %>
+
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

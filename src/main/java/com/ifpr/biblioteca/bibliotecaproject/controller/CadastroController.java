@@ -23,22 +23,23 @@ public class CadastroController extends HttpServlet {
         usuario = new Usuario();
         usuarioRepository = new UsuarioRepository();
     }
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+        String flag = req.getParameter("flag");
 
-        if (action != null && action.equals("telaCadastro")){
-            resp.sendRedirect("http://localhost:8080/app/usuarioCadastro.jsp");
-        } else if (action != null && action.equals("usuarioCadastro")){
-            this.cadastrar(req, resp);
+        if (action != null) {
+            if (action.equals("telaCadastro")) {
+                resp.sendRedirect("http://localhost:8080/app/usuarioCadastro.jsp");
+            } else if (action.equals("usuarioCadastro")){
+                this.cadastrar(req, resp);
+            }
         }
-
     }
 
     protected void cadastrar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // okay recebo aqui meus atributos
-        
         String fieldNome = req.getParameter("field_nome");
         String fieldSobrenome = req.getParameter("field_sobrenome");
         String fieldEmail = req.getParameter("field_email");
@@ -62,16 +63,11 @@ public class CadastroController extends HttpServlet {
             AuthentificationService service = new AuthentificationService();
             try {
                 service.validateLogin(fieldEmail, fieldSenha, req);
-
-                //se está aqui nessa é porque não ocorreu nenhum erro
                 resp.sendRedirect("http://localhost:8080/app/home");
             } catch (Exception e) {
                 resp.sendRedirect("http://localhost:8080/app/index.jsp");
             }
         }
-
-
-
 
 
     }

@@ -1,13 +1,12 @@
 package com.ifpr.biblioteca.bibliotecaproject.domain.entities;
 
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoEmprestimo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Entity(name = "tb_emprestimo")
-// TODO
-// mostrar pra emprestimos depois
+@Entity(name = "tb_emprestimos")
 public class Emprestimo {
 
     @Id
@@ -24,10 +23,21 @@ public class Emprestimo {
     @Column(name = "livro_dtaEmprestimo")
     private LocalDate dataEmprestimo;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "emprestimo_situacao")
+    private SituacaoEmprestimo situacaoEmprestimo;
     @Column(name = "livro_renovacao")
     private Integer renovacao;
     @Column(name = "livro_dtaDevolucao")
     private LocalDate dataDevolucao;
+
+    public SituacaoEmprestimo getSituacaoEmprestimo() {
+        return situacaoEmprestimo;
+    }
+
+    public void setSituacaoEmprestimo(SituacaoEmprestimo situacaoEmprestimo) {
+        this.situacaoEmprestimo = situacaoEmprestimo;
+    }
 
     public Integer getRenovacao() {
         return renovacao;
@@ -73,10 +83,10 @@ public class Emprestimo {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao() {
-
-        this.dataDevolucao = dataEmprestimo.plusDays(7);
-    }
+    public void setDataDevolucao(LocalDate dataDevolucao) {
+        // todo
+        // dar uma olhada aqui
+        this.dataDevolucao = dataDevolucao;    }
 
     @Override
     public String toString() {

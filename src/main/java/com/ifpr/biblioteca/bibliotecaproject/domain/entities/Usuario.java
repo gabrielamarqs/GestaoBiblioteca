@@ -24,6 +24,7 @@ public class Usuario {
     private String senha;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "usuario_admin")
     private Admin admin;
 
     @Enumerated(value = EnumType.STRING)

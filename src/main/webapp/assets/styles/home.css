@@ -70,8 +70,11 @@ body {
     overflow: auto;
     padding: 10px;
     max-height: 100vh; }
-  .container-fluid .biblioteca .right .main th:first-child {
-    position: sticky;
-    left: 0; }
+    .container-fluid .biblioteca .right .main .table-container .table {
+      table-layout: fixed;
+      max-width: 100%; }
+      .container-fluid .biblioteca .right .main .table-container .table th:first-child {
+        position: sticky;
+        left: 0; }
 
 /*# sourceMappingURL=home.css.map */

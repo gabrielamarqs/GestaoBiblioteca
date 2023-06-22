@@ -3,7 +3,9 @@ package com.ifpr.biblioteca.bibliotecaproject.controller;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Emprestimo;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoEmprestimo;
 import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoLivro;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoUsuario;
 import com.ifpr.biblioteca.bibliotecaproject.repository.EmprestimoRepository;
 import com.ifpr.biblioteca.bibliotecaproject.repository.LivroRepository;
 import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
@@ -15,7 +17,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @WebServlet(value = "/livros")
@@ -39,6 +40,8 @@ public class LivroController extends HttpServlet {
 
         if (action == null) {
             this.listar(req, resp);
+            // TODO
+            // por isso aqui dentro da service
         } else if (action.equals("redirecionar")) {
             req.getRequestDispatcher("cadastroLivro.jsp").forward(req, resp);
         } else if (action.equals("cadastrar")) {
@@ -47,30 +50,9 @@ public class LivroController extends HttpServlet {
 
         } else if (action.equals("emprestar")) {
 
-
-            Emprestimo emprestimo = new Emprestimo();
-            Livro livroBuscado;
-            Usuario usuario;
-
-
             Long codigo = Long.valueOf(req.getParameter("codigo"));
             String email = req.getParameter("email");
-
-            livroBuscado = livroRepository.findById(codigo);
-            usuario = usuarioRepository.getUserByEmail(email);
-
-            livroBuscado.setSituacaoLivro(SituacaoLivro.EMPRESTADO);
-
-            emprestimo.setLivro(livroBuscado);
-            emprestimo.setUsuario(usuario);
-            emprestimo.setDataEmprestimo(LocalDate.now());
-            emprestimo.setDataDevolucao();
-            emprestimoRepository.create(emprestimo);
-
-            livroRepository.update(livroBuscado);
-
-            resp.sendRedirect("http://localhost:8080/app/home");
-
+            this.emprestar(codigo, email, req, resp);
 
         } else if (action.equals("buscar")) {
 
@@ -81,6 +63,40 @@ public class LivroController extends HttpServlet {
         }
     }
 
+    protected void emprestar(Long codigo, String email, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        Emprestimo emprestimo = new Emprestimo();
+        Livro livroBuscado;
+        Usuario usuarioEmail;
+
+        livroBuscado = livroRepository.findById(codigo);
+        usuarioEmail = usuarioRepository.getUserByEmail(email);
+
+        System.out.println(livroBuscado.getSituacaoLivro());
+
+        if (livroBuscado.getSituacaoLivro().equals(SituacaoLivro.DISPONIVEL) && usuarioEmail.getSituacaoUsuario().equals(SituacaoUsuario.LIVRE)) {
+
+            livroBuscado.setSituacaoLivro(SituacaoLivro.EMPRESTADO);
+
+            emprestimo.setLivro(livroBuscado);
+            emprestimo.setUsuario(usuarioEmail);
+            emprestimo.setDataEmprestimo(LocalDate.now());
+            emprestimo.setDataDevolucao(LocalDate.now().plusDays(7));
+            emprestimo.setSituacaoEmprestimo(SituacaoEmprestimo.EMPRESTIMO);
+            emprestimoRepository.create(emprestimo);
+
+            livroRepository.update(livroBuscado);
+
+        } else {
+            String errorMessage = "Ocorreu um erro interno ao processar a requisição.";
+            resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // Definir código de status 500
+            req.setAttribute("errorMessage", errorMessage);
+            System.out.println(errorMessage);
+            req.getRequestDispatcher("home.jsp").forward(req, resp);
+        }
+
+        resp.sendRedirect("http://localhost:8080/app/home");
+    }
 
     protected void listar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Livro> livros = livroRepository.getAll();

@@ -8,6 +8,9 @@
 --%>
 <%
 	List<Livro> livros = (List<Livro>) request.getAttribute("attr_livros");
+
+	Boolean isAdminHome = (Boolean) request.getSession().getAttribute("admin");
+
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -33,56 +36,62 @@
 			<div class="main">
 				<div class="table-container">
 
-<%--					<div class="d-grid gap-2 col-6 mx-auto">--%>
-<%--						<button class="btn btn-primary" type="button">Button</button>--%>
-<%--						<button class="btn btn-primary" type="button">Button</button>--%>
-<%--					</div>--%>
+					<% if (isAdminHome != null && isAdminHome) { %>
 
-					<div class="d-grid gap-2 d-md-flex justify-content-md-end" >
-							<a href="livros?action=redirecionar" class="btn btn-primary" role="button">
-<%--								mandar cadastrk livro pra livros primeiro--%>
-								Cadastrar Livros
-							</a>
+					<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+						<a href="livros?action=redirecionar" class="btn btn-primary" role="button">
+							Cadastrar Livros
+						</a>
 					</div>
-				<table class="table">
-					<thead>
-					<tr>
-						<th>Codigo</th>
-						<th>Titulo</th>
-						<th>Autor</th>
-						<th>Sinopse</th>
-						<th>Gênero</th>
-						<th>Status</th>
-						<th>Opções</th>
 
-					</tr>
-					</thead>
-					<tbody>
-					<% for (Livro l : livros) {%>
-					<tr>
-						<td>
-							<%= l.getCodigoLivro() %>
-						</td>
-						<td>
-							<%= l.getTitulo() %>
-						</td>
-						<td>
-							<%= l.getAutor() %>
-						</td>
-						<td>
-							<%= l.getSinopse() %>
-						</td>
-						<td>
-							<%= l.getGenero() %>
-						</td>
-						<td>
-							<%= l.getSituacaoLivro() %>
-						</td>
-						<td><a href="#" onclick="emprestarLivro(<%= l.getCodigoLivro() %>, )">Emprestar</a></td>
-					</tr>
 					<% } %>
-					</tbody>
-				</table>
+
+					<table class="table">
+						<thead>
+						<tr>
+							<th>Codigo</th>
+							<th>Titulo</th>
+							<th>Autor</th>
+							<th>Sinopse</th>
+							<th>Gênero</th>
+							<th>Status</th>
+							<% if (isAdminHome != null && isAdminHome) { %>
+
+							<th>Opções</th>
+							<% } %>
+						</tr>
+						</thead>
+						<tbody>
+						<% for (Livro l : livros) {%>
+						<tr>
+							<td>
+								<%= l.getCodigoLivro() %>
+							</td>
+							<td>
+								<%= l.getTitulo() %>
+							</td>
+							<td>
+								<%= l.getAutor() %>
+							</td>
+							<td>
+								<%= l.getSinopse() %>
+							</td>
+							<td>
+								<%= l.getGenero() %>
+							</td>
+							<td>
+								<%= l.getSituacaoLivro() %>
+							</td>
+							<% if (isAdminHome != null && isAdminHome) { %>
+
+							<td><a href="#" onclick="emprestarLivro(<%= l.getCodigoLivro() %>, )">Emprestar</a></td>
+
+							<% } %>
+
+						</tr>
+						<% } %>
+						</tbody>
+					</table>
 				</div>
 
 			</div>
@@ -90,25 +99,25 @@
 	</div>
 </div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					<span id="errorMessage"></span>
-				</div>
-				<div class="modal-body">
-					<input type="text" name="email" id="inputEmail" class="form-control">
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
-					<button type="button" class="btn btn-primary" id="emprestarButton">emprestar</button>
-				</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Email</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<span id="errorMessage">${errorMessage}</span>
+			</div>
+			<div class="modal-body">
+				<input type="text" name="email" id="inputEmail" class="form-control">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+				<button type="button" class="btn btn-primary" id="emprestarButton">emprestar</button>
 			</div>
 		</div>
 	</div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -137,18 +146,26 @@
 
     emprestarButton.addEventListener('click', () => {
 
+        // errorMessage.textContent = "";
+        // inputEmail.value = "";
+
         let url = "http://localhost:8080/app/livros?action=emprestar&codigo=" + codigoLivro + "&email=" + inputEmail.value;
 
 
         fetch(url).then((response) => {
-            console.log("deu bom");
-            //fechar a modal dialog
+            if (!response.ok) {
+                errorMessage.textContent = "Problema ao tentar emprestar.";
+                myModal.show();
+                throw new Error("Request failed: " + response.status);
+            }
             myModal.hide();
-        }).catch((error) => {
-            console.log("deu ruim");
-            errorMessage.textContent("problema ao tentar emprestar");
-        });
 
+
+
+        }).catch((error) => {
+            errorMessage.textContent = "Problema ao tentar emprestar: " + error.message;
+            myModal.show();
+        });
     });
 
 </script>

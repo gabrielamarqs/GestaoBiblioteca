@@ -39,20 +39,22 @@
 						<div class="passwordDiv">
 							<input type="password" class="input loginPassword" name="field_password" id="inputPassword"
 							       placeholder="Insira sua senha">
-<%--							4<a href="#" class="forgotPassword"> Esqueceu a senha? </a>--%>
+							<%--							4<a href="#" class="forgotPassword"> Esqueceu a senha? </a>--%>
 						</div>
 
 					</div>
 					<div class="btnLoginDiv">
-						<button type="submit" class="btnLogin">Login</button>
+						<button type="submit" class="btnLogin">
+							Login
+						</button>
 					</div>
 					<p>OR</p>
 					<div class="btnCadastrarDiv">
-						<button type="submit" class="btnCadastrar">
-							<a class="ancoraCadastro" href="cadastro?action=telaCadastro">
+						<a class="ancoraCadastro" href="cadastro?action=telaCadastro">
+							<button class="btnCadastrar" type="button">
 								Cadastrar
-							</a>
-						</button>
+							</button>
+						</a>
 					</div>
 
 				</form>

@@ -12,7 +12,12 @@ public class ConnectionFactory {
     }
 
     public static EntityManager getConnection() {
-        return entityManagerFactory.createEntityManager();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        entityManager.getEntityManagerFactory().getCache().evictAll();
+
+        return entityManager;
+
     }
 
     public  static void closeEntityManager(EntityManagerFactory emFactory) {

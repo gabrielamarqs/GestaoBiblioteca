@@ -36,8 +36,6 @@ public class LoginController extends HttpServlet {
             resp.sendRedirect("http://localhost:8080/app/index.jsp");
 
         }
-
-
     }
 
     @Override
@@ -48,5 +46,4 @@ public class LoginController extends HttpServlet {
         resp.sendRedirect("http://localhost:8080/app/index.jsp");
 
     }
-
 }

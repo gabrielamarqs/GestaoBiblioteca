@@ -10,4 +10,9 @@
   font-weight: bold;
   text-align: center;
   background: white;
+
+  &:hover {
+    pointer-events: auto;
+    background: $green-03;
+  }
 }

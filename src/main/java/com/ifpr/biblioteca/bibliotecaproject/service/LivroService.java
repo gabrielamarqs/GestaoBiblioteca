@@ -5,13 +5,11 @@ import com.ifpr.biblioteca.bibliotecaproject.exception.UsuarioInexistenteExcepti
 import com.ifpr.biblioteca.bibliotecaproject.repository.LivroRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
-import java.io.IOException;
-
-public class LivroAuthentificationService {
+public class LivroService {
 
     LivroRepository livroRepository;
 
-    public LivroAuthentificationService() {
+    public LivroService() {
         livroRepository = new LivroRepository();
     }
 
@@ -30,4 +28,6 @@ public class LivroAuthentificationService {
         return livro;
 
     }
+
+
 }

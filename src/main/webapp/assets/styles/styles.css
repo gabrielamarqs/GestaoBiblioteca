@@ -37,6 +37,9 @@
   font-weight: bold;
   text-align: center;
   background: white; }
+  .btnCadastrar:hover {
+    pointer-events: auto;
+    background: #baf8cb; }
 
 body {
   width: 100%; }
@@ -94,9 +97,6 @@ body {
         border: 0;
         font-weight: bold;
         text-align: center; }
-    .container .biblioteca .left .formDiv .btnCadastrarDiv .btnCadastrar .ancoraCadastro {
-      text-decoration: none !important;
-      color: #92e3a9; }
     .container .biblioteca .left .formDiv p {
       text-align: center; }
 

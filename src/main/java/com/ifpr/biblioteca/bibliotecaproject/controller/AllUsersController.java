@@ -32,16 +32,19 @@ public class AllUsersController extends HttpServlet {
         Long usuarioCodigo;
 
         if (usuarioLogado != null) {
+            if (action != null) {
+                usuarioCodigo = Long.valueOf(req.getParameter("codigo"));
+                Usuario usuarioFindById = usuarioRepository.findById(usuarioCodigo);
 
-            if (action != null && action.equals("delete")) {
-                usuarioCodigo = Long.valueOf(req.getParameter("codigo"));
-                Usuario usuarioFindById = usuarioRepository.findById(usuarioCodigo);
-                usuarioRepository.delete(usuarioFindById);
-            } if (action != null && action.equals("admin")) {
-                usuarioCodigo = Long.valueOf(req.getParameter("codigo"));
-                Usuario usuarioFindById = usuarioRepository.findById(usuarioCodigo);
-                usuarioFindById.setAdmin(Admin.SIM);
-                usuarioRepository.update(usuarioFindById);
+                if (  action.equals("delete")) {
+                    usuarioRepository.delete(usuarioFindById);
+                } else if ( action.equals("adminSim")) {
+                    usuarioFindById.setAdmin(Admin.SIM);
+                    usuarioRepository.update(usuarioFindById);
+                } else if ( action.equals("adminNao")) {
+                    usuarioFindById.setAdmin(Admin.NAO);
+                    usuarioRepository.update(usuarioFindById);
+                }
             }
 
             List<Usuario> usuarioList = usuarioRepository.getAll();

@@ -7,9 +7,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity(name = "tb_livro")
-// TODO
-// mudar para tb_livros
+@Entity(name = "tb_livros")
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

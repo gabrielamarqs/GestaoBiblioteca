@@ -4,6 +4,7 @@ import com.ifpr.biblioteca.bibliotecaproject.connection.ConnectionFactory;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Emprestimo;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro;
 import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
+import com.ifpr.biblioteca.bibliotecaproject.domain.enums.SituacaoLivro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
@@ -18,6 +19,7 @@ public class LivroRepository {
 
     public LivroRepository() {
         this.entityManager = ConnectionFactory.getConnection();
+        this.entityManager.getEntityManagerFactory().getCache().evictAll();
         this.transaction = entityManager.getTransaction();
     }
 
@@ -36,20 +38,29 @@ public class LivroRepository {
     }
 
     public Livro findByIsbn(String isbn) {
-        return entityManager.createQuery("select l from tb_livro l  where l.isbn = :isbn", Livro.class).setParameter("isbn", isbn).getSingleResult();
+        return entityManager.createQuery("select l from tb_livros l  where l.isbn = :isbn", Livro.class).setParameter("isbn", isbn).getSingleResult();
 
     }
 
     // listar todos os livros
     public List<Livro> getAll() {
-        return entityManager.createQuery("SELECT l FROM tb_livro l order by l.titulo", Livro.class).getResultList();
+        entityManager.getEntityManagerFactory().getCache().evictAll();
+
+        return entityManager.createQuery("SELECT l FROM tb_livros l order by l.titulo", Livro.class).getResultList();
     }
+
+    public List<Livro> getAllLivrosDisponiveis(SituacaoLivro situacao) {
+        return entityManager.createQuery("SELECT l FROM tb_livros l WHERE l.situacaoLivro = :situacao ORDER BY l.codigoLivro", Livro.class).setParameter("situacao", situacao).getResultList();
+    }
+
 
     // alterar
     public Livro update(Livro livro){
         transaction.begin();
         livro = entityManager.merge(livro);
         transaction.commit();
+        entityManager.detach(livro);
+
         return livro;
     }
 
@@ -66,7 +77,6 @@ public class LivroRepository {
         query =  query.setParameter("titulo", "%" +tituloBuscado + "%");
 
         return query.getResultList();
-
 
     }
 }
