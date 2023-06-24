@@ -59,11 +59,8 @@ public class EmprestimoService {
     }
 
     public void livroRenovar(Long codigo, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // atualiza o status do livro, do emprestimo e do usuário caso ele esteja bloqueado
         Emprestimo emprestimoCodigo = emprestimoRepository.findById(codigo);
-//        Livro livroCodigo = emprestimoCodigo.getLivro();
         Usuario usuarioCodigo = emprestimoCodigo.getUsuario();
-//        String email = usuarioCodigo.getEmail();
 
         if (usuarioCodigo.getSituacaoUsuario().equals(SituacaoUsuario.LIVRE)
                 && emprestimoCodigo.getSituacaoEmprestimo().equals(SituacaoEmprestimo.EMPRESTIMO)) {
@@ -83,6 +80,10 @@ public class EmprestimoService {
 
             req.setAttribute("mensagem", "Livro renovado com sucesso!");
             SituacaoLivro situacaoLivro = SituacaoLivro.EMPRESTADO;
+            this.livroSituacao(situacaoLivro, req, resp);
+        } else if (usuarioCodigo.getSituacaoUsuario().equals(SituacaoUsuario.BLOQUEADO)){
+            req.setAttribute("mensagem", "Não é possível renovar o livro!");
+            SituacaoLivro situacaoLivro = SituacaoLivro.ATRASADO;
             this.livroSituacao(situacaoLivro, req, resp);
         }
     }

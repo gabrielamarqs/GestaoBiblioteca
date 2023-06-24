@@ -1,0 +1,14 @@
+**Teste
+
+** Usuario Administrador
+email : admin@gmail.com 
+senha : admin
+
+autorizações :
+cadastrar  livros, renovar empréstimos, devolver empréstimos, editar usuários
+
+** Usuario Teste
+email : teste@gmail.com
+senha : teste
+
+para poder ver o histórico de livros e informações do usuário

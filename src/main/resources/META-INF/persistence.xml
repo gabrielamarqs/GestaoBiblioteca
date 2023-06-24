@@ -14,7 +14,7 @@
             <property name="jakarta.persistence.jdbc.user" value="gabriela" />
             <property name="jakarta.persistence.jdbc.password" value="daniela" />
 
-            <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
             <!--
             Opções:
             update

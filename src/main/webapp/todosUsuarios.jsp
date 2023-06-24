@@ -1,11 +1,5 @@
 <%@ page import="com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: gabrielamarques
-  Date: 10/06/2023
-  Time: 16:37
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -14,7 +8,7 @@
 
 <html>
 <head>
-	<title>Title</title>
+	<title>Usuarios</title>
 	<link href="assets/styles/home.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -39,6 +33,7 @@
 							<th>Nome</th>
 							<th>Sobrenome</th>
 							<th>Email</th>
+							<th>Admin</th>
 							<th>Administrador</th>
 							<th>Excluir</th>
 						</tr>
@@ -54,6 +49,9 @@
 							</td>
 							<td>
 								<%= usuario.getEmail() %>
+							</td>
+							<td>
+								<%= usuario.getAdmin() %>
 							</td>
 							<td>
 								<a href="controller_all_users?action=adminSim&codigo=<%= usuario.getCodigoUsuario() %>">

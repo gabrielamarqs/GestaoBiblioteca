@@ -84,8 +84,6 @@ public class Emprestimo {
     }
 
     public void setDataDevolucao(LocalDate dataDevolucao) {
-        // todo
-        // dar uma olhada aqui
         this.dataDevolucao = dataDevolucao;    }
 
     @Override

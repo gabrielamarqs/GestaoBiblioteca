@@ -72,7 +72,7 @@ public class LivroRepository {
 
     public List<Livro> getByName(String tituloBuscado) {
 
-        TypedQuery<Livro> query =  entityManager.createQuery("SELECT l FROM tb_livro l WHERE l.titulo LIKE :titulo", Livro.class);
+        TypedQuery<Livro> query =  entityManager.createQuery("SELECT l FROM tb_livros l WHERE l.titulo LIKE :titulo", Livro.class);
 
         query =  query.setParameter("titulo", "%" +tituloBuscado + "%");
 

@@ -4,6 +4,7 @@ import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import com.ifpr.biblioteca.bibliotecaproject.domain.enums.Admin;
 import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
 import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
+import com.ifpr.biblioteca.bibliotecaproject.service.UsuarioService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,11 +19,13 @@ public class AllUsersController extends HttpServlet {
     Usuario usuario;
     UsuarioRepository usuarioRepository;
     AuthentificationService authentificationService;
+    UsuarioService usuarioService;
 
     public AllUsersController() {
         usuario = new Usuario();
         usuarioRepository = new UsuarioRepository();
         authentificationService = new AuthentificationService();
+        usuarioService = new UsuarioService();
     }
 
     @Override
@@ -47,10 +50,7 @@ public class AllUsersController extends HttpServlet {
                 }
             }
 
-            List<Usuario> usuarioList = usuarioRepository.getAll();
-            req.setAttribute("attr_usuarioList", usuarioList);
-            req.getRequestDispatcher("todosUsuarios.jsp").forward(req, resp);
-
+            usuarioService.listarTodosUsuarios(req, resp);
         }
     }
 }

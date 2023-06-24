@@ -1,14 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gabrielamarques
-  Date: 25/05/2023
-  Time: 20:25
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>tela de cadastro</title>
+    <title>Tela de cadastro</title>
     <link href="assets/styles/cadastro.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,14 +40,8 @@
                 <input name="field_confirmaSenha" type="password" class="inputCadastro" id="inputConfirmaSenha"
                        placeholder="Confirme a senha">
                 <p>${message}</p>
-
             </div>
-            <!--
-            <div class="termos">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Concordo com os termos e condições.</label>
-            </div> -->
-            <div class="btnCadastrarDiv">
+             <div class="btnCadastrarDiv">
                 <button type="submit" class="btnCadastrar">Cadastrar</button>
             </div>
         </form>

@@ -10,17 +10,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter(value = {"/home", "/livros", "/usuarios"})
-// TODO:
-// depois testar essa servlet
-
-// TODO
-// por dentro de outra pasta
 public class ServletFilter implements Filter {
     AuthentificationService service;
 
     public ServletFilter() {
         service = new AuthentificationService();
     }
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         service = new AuthentificationService();
@@ -42,7 +38,6 @@ public class ServletFilter implements Filter {
         } else {
             httpResp.sendRedirect("http://localhost:8080/app/index.jsp");
         }
-
     }
 
     @Override

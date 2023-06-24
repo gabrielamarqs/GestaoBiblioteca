@@ -5,6 +5,7 @@ import com.ifpr.biblioteca.bibliotecaproject.domain.entities.Usuario;
 import com.ifpr.biblioteca.bibliotecaproject.repository.EmprestimoRepository;
 import com.ifpr.biblioteca.bibliotecaproject.repository.UsuarioRepository;
 import com.ifpr.biblioteca.bibliotecaproject.service.AuthentificationService;
+import com.ifpr.biblioteca.bibliotecaproject.service.UsuarioService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,12 +22,15 @@ public class UsuarioController extends HttpServlet {
     UsuarioRepository usuarioRepository;
     EmprestimoRepository emprestimoRepository;
     AuthentificationService authentificationService;
+    UsuarioService usuarioService;
+    private String action;
 
     public UsuarioController() {
         usuario = new Usuario();
         usuarioRepository = new UsuarioRepository();
         authentificationService = new AuthentificationService();
         emprestimoRepository = new EmprestimoRepository();
+        usuarioService = new UsuarioService();
     }
 
     @Override
@@ -34,36 +38,13 @@ public class UsuarioController extends HttpServlet {
         Usuario usuarioLogado = authentificationService.isUserLoggedIn(req);
         String action = req.getParameter("action");
 
-        if (usuarioLogado != null) {
-            if (action != null && action.equals("usuario")) {
+        if (action != null) {
+
+            if (action.equals("usuario")) {
                 String email = usuarioLogado.getEmail();
-                this.listarUsuario(email, req, resp);
-//                this.livroHistorico(email, req, resp);
+                usuarioService.listarUsuario(email, req, resp);
             }
-
         }
-    }
-
-    protected void listarUsuario(String email, HttpServletRequest req, HttpServletResponse resp) throws
-            ServletException, IOException {
-
-        usuario = usuarioRepository.getUserByEmail(email);
-
-        List<Object[]> emprestimosUsuario = emprestimoRepository.getAllEmprestimoUsuario(email);
-
-        for (Object[] linha : emprestimosUsuario) {
-            String tituloLivro = (String) linha[0];
-            LocalDate dataEmprestimo = (LocalDate) linha[1];
-            LocalDate dataDevolucao = (LocalDate) linha[2];
-            System.out.println(tituloLivro);
-            System.out.println(dataDevolucao);
-        }
-
-        req.setAttribute("attr_usuarioHistorico", emprestimosUsuario);
-        req.setAttribute("attr_usuario", usuario);
-        req.getRequestDispatcher("usuario.jsp").forward(req, resp);
-
-
     }
 }
 

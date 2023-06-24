@@ -1,11 +1,6 @@
 <%@ page import="com.ifpr.biblioteca.bibliotecaproject.domain.entities.Livro" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: gabrielamarques
-  Date: 28/05/2023
-  Time: 21:17
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+
 <%
 	List<Livro> livros = (List<Livro>) request.getAttribute("attr_livros");
 
@@ -119,9 +114,7 @@
 	</div>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 
 <script>
 
@@ -143,7 +136,6 @@
         myModal.show();
     }
 
-
     emprestarButton.addEventListener('click', () => {
 
         // errorMessage.textContent = "";
@@ -159,8 +151,6 @@
                 throw new Error("Request failed: " + response.status);
             }
             myModal.hide();
-
-
 
         }).catch((error) => {
             errorMessage.textContent = "Problema ao tentar emprestar: " + error.message;

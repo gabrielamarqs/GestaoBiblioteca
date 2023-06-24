@@ -28,6 +28,7 @@ public class Usuario {
     private Admin admin;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "usuario_situacao")
     private SituacaoUsuario situacaoUsuario;
 
     public SituacaoUsuario getSituacaoUsuario() {
