@@ -68,13 +68,13 @@
 
 					<tr>
 						<td>
+							<%= emprestimo[0] %>
+						</td>
+						<td>
 							<%= emprestimo[1] %>
 						</td>
 						<td>
 							<%= emprestimo[2] %>
-						</td>
-						<td>
-							<%= emprestimo[3] %>
 						</td>
 					</tr>
 					<% } %>

@@ -53,7 +53,7 @@ public class EmprestimoRepository {
     }
 
     public List<Object[]> getAllEmprestimoUsuario(String email) {
-        TypedQuery<Object[]> query = entityManager.createQuery("SELECT e.codigoEmprestimo, l.titulo, e.dataEmprestimo, e.dataDevolucao FROM tb_livros l JOIN l.emprestimo e JOIN e.usuario u WHERE u.email = :email ORDER BY e.dataEmprestimo", Object[].class);
+        TypedQuery<Object[]> query = entityManager.createQuery("SELECT l.titulo, e.dataEmprestimo, e.dataDevolucao FROM tb_livros l JOIN l.emprestimo e JOIN e.usuario u WHERE u.email = :email ORDER BY e.dataEmprestimo", Object[].class);
         query.setParameter("email", email);
         return query.getResultList();
     }
