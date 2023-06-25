@@ -4,7 +4,7 @@
 
 <!-- 2- descrição do projeto -->
 <p>
-O Sistema de Gerenciamento de Biblioteca é uma aplicação Web desenvolvida como parte de uma atividade avaliativa para a disciplina de Desenvolvimento Web III. Utilizei conhecimentos em Java, Servlet, JPA, sessões e métodos HTTP para criar uma aplicação funcional. 
+O Sistema de Gerenciamento de Biblioteca é uma aplicação Web desenvolvida como parte de uma atividade avaliativa para a disciplina de Desenvolvimento Web III. Utilizei conhecimentos em Java, Servlet, JPA, sessões e métodos HTTP para criar uma aplicação funcional. Foi adotado o uso do Maven como gerenciador de dependências, facilitando a configuração e a organização do projeto. Utilizei o banco de dados MySQL para armazenar as informações relacionadas aos usuários, livros e empréstimos, garantindo a persistência dos dados de forma eficiente e segura.
 </p>
 <p>
   A IDE utilizada para o desenvolvimento do Sistema de Gerenciamento de Biblioteca foi o IntelliJ IDEA Ultimate Edition.
