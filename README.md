@@ -24,7 +24,7 @@ O Sistema de Gerenciamento de Biblioteca é uma aplicação web que oferece func
 
 <!-- tela de login -->
 <h2 align="center"> Tela de Login </h2>
-![PáginaInicial](https://raw.githubusercontent.com/gabrielamarqs/GestaoBiblioteca/blob/b9f8cd1a10f5e6bf6bc22eed0d1e729c623dd34b/src/main/webapp/assets/paginaInicial.png)
+![PáginaInicial](https://github.com/gabrielamarqs/GestaoBiblioteca/blob/b9f8cd1a10f5e6bf6bc22eed0d1e729c623dd34b/src/main/webapp/assets/paginaInicial.png)
 
 <!-- página home de um Usuário Administrador -->
 <h2 align="center"> Página Home - Usuário Administrador </h2>
