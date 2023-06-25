@@ -1,6 +1,6 @@
 <!-- 1- titulo do projeto -->
 <h1 align="center"> LibraKey </h1>
-<h2 align="center"> Sistema de Gerenciamento de Biblioteca </h1>
+<h2 align="center"> Sistema de Gerenciamento de Biblioteca </h2>
 
 <!-- 2- descrição do projeto -->
 <p>
@@ -23,15 +23,15 @@ O Sistema de Gerenciamento de Biblioteca é uma aplicação web que oferece func
 </p>
 
 <!-- tela de login -->
-<h2 align="center"> Tela de Login </h1>
-![image](https://github.com/gabrielamarqs/GestaoBiblioteca/assets/106118943/591ef0d8-2902-424b-886d-99a4bddf5f1a)
+<h2 align="center"> Tela de Login </h2>
+![image](src/main/webapp/assets/paginaHomeAdmin.png)
 
 <!-- página home de um Usuário Administrador -->
-<h2 align="center"> Página Home - Usuário Administrador </h1>
+<h2 align="center"> Página Home - Usuário Administrador </h2>
 ![image](https://github.com/gabrielamarqs/GestaoBiblioteca/assets/106118943/9523b0fe-4fd2-4870-8e17-930541223e5c)
 
 <!-- página home de um Usuário -->
-<h2 align="center"> Página Home - Usuário </h1>
+<h2 align="center"> Página Home - Usuário </h2>
 ![image](https://github.com/gabrielamarqs/GestaoBiblioteca/assets/106118943/d8b002d4-bfc0-4803-a800-cb33a10cd356)
 
 <!-- página cadastro usuario -->
