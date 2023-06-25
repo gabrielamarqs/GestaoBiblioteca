@@ -24,15 +24,15 @@ O Sistema de Gerenciamento de Biblioteca é uma aplicação web que oferece func
 
 <!-- tela de login -->
 <h2 align="center"> Tela de Login </h2>
-![image](src/main/webapp/assets/paginaHomeAdmin.png)
+![PáginaInicial](https://raw.githubusercontent.com/gabrielamarqs/GestaoBiblioteca/blob/b9f8cd1a10f5e6bf6bc22eed0d1e729c623dd34b/src/main/webapp/assets/paginaInicial.png)
 
 <!-- página home de um Usuário Administrador -->
 <h2 align="center"> Página Home - Usuário Administrador </h2>
-![image](https://github.com/gabrielamarqs/GestaoBiblioteca/assets/106118943/9523b0fe-4fd2-4870-8e17-930541223e5c)
+![paginaHomeAdmin](https://github.com/gabrielamarqs/GestaoBiblioteca/blob/b9f8cd1a10f5e6bf6bc22eed0d1e729c623dd34b/src/main/webapp/assets/paginaHomeAdmin.png)
 
 <!-- página home de um Usuário -->
 <h2 align="center"> Página Home - Usuário </h2>
-![image](https://github.com/gabrielamarqs/GestaoBiblioteca/assets/106118943/d8b002d4-bfc0-4803-a800-cb33a10cd356)
+![paginaHomeUsuario](https://github.com/gabrielamarqs/GestaoBiblioteca/blob/b9f8cd1a10f5e6bf6bc22eed0d1e729c623dd34b/src/main/webapp/assets/paginaHomeUsuario.png)
 
 <!-- página cadastro usuario -->
 <!-- página cadastro livro -->
