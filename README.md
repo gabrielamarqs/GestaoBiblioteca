@@ -4,7 +4,7 @@
 
 <!-- 2- descrição do projeto -->
 <p>
-O Sistema de Gerenciamento de Biblioteca é uma aplicação Web desenvolvida como parte de uma atividade avaliativa para a disciplina de Desenvolvimento Web III. Utilizei conhecimentos em Java, Servlet, JPA, sessões e métodos HTTP para criar uma aplicação funcional. Foi adotado o uso do Maven como gerenciador de dependências, facilitando a configuração e a organização do projeto. Utilizei o banco de dados MySQL para armazenar as informações relacionadas aos usuários, livros e empréstimos, garantindo a persistência dos dados de forma eficiente e segura.
+O Sistema de Gerenciamento de Biblioteca é uma aplicação Web desenvolvida como parte de uma atividade avaliativa para a disciplina de Desenvolvimento Web III. Utilizei conhecimentos em Java, Servlet, JPA, sessões e métodos HTTP para criar uma aplicação funcional. Foi adotado o uso do Maven como gerenciador de dependências, facilitando a configuração e a organização do projeto. Utilizei o banco de dados MySQL para armazenar as informações relacionadas aos usuários, livros e empréstimos, garantindo a persistência dos dados.
 </p>
 <p>
   A IDE utilizada para o desenvolvimento do Sistema de Gerenciamento de Biblioteca foi o IntelliJ IDEA Ultimate Edition.
@@ -34,16 +34,20 @@ O Sistema de Gerenciamento de Biblioteca é uma aplicação web que oferece func
 <h2 align="center"> Página Home - Usuário </h2>
 ![paginaHomeUsuario](https://github.com/gabrielamarqs/GestaoBiblioteca/blob/b9f8cd1a10f5e6bf6bc22eed0d1e729c623dd34b/src/main/webapp/assets/paginaHomeUsuario.png)
 
+<!-- TODO -->
 <!-- página cadastro usuario -->
 <!-- página cadastro livro -->
 <!-- página emprestimos -->
 <!-- página usuário -->
 
-<!-- projetos futuros 
-  implementar um esqueceu senha
-  implementar um método para que os usuários possam editar suas informações, para que possam renovar livros da sua própria conta
-  
--->
+<h2>Implementações futuras</h2>
+<ol>
+  <li>Método "esqueceu senha?"</li>
+  <li>Método para editar as informações dos Usuários e para editar informações dos Livros</li>
+  <li>Método para que o Usuário possa renovar os livros emprestados</li>
+  <li>Atualizar as telas de cadastro</li>
+</ol>
+
 
 
 
